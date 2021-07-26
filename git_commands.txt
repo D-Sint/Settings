@@ -1,0 +1,28 @@
+Для начала работы указать имя и email:
+
+$ git confing --global user.name "username"
+$ git confing --global user.email "username@example.com"
+
+Посмотреть настройки:
+$ git config --list
+
+Редактирование git-config:
+$ git config -e 	" Открывает редактор конфига гит(можно изменить ветку, 
+			" пользователя и т.д.)
+Изменить пользователя, email:
+$ git config --global --replace-all user.name "FName LName" 	"Replace names
+$ git config --global --replace-all user.mail "mail_@domain.com" 	"Set new email
+
+.gitignore - файл, в котором записываются расширения файлов, которые будут 
+игнорироваться git
+
+git add . - начать следить за всеми файлами(git добавил файлы в промежуточное 
+состояние[stage_area])
+git commit -m "<comment_text>"- сохраняет то что было применено командой add 
+git rm --cashed <file1>...<file n> - удалит файлы для слежения(добавленные 
+командой add) ДЕЛАТЬ ПЕРЕД "GIT COMMIT"
+
+Состояния git-файлов
+- committed - файл сохранен в локальной базе
+- modified - файл изменен, но не сохранен в локальной базе
+- staged - файл отмечен на добавление в следующий commit
