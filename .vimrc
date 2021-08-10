@@ -30,7 +30,8 @@ call vundle#end()
 "Stick this in your vimrc to open NERDTree with `Ctrl+n`
 " (you can set whatever key you want):
 map <C-n> :NERDTreeToggle<CR>	   " Open/Close NerdTree
-
+" Aoutoclose after open file
+let NERDTreeQuitOnOpen=1
 
 " Now we can turn our filetype functionality back on
 "
