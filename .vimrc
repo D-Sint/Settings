@@ -21,9 +21,13 @@ Plugin 'preservim/nerdtree' 	   " Project and file navigation
 
 "---------------=== Languages support ===-------------
 " --- Python ---
-Plugin 'davidhalter/jedi-vim'	   " Jedi-vim autocomplete plugin
+Plugin 'Valloric/YouCompleteMe'    " Autocomplete
 Plugin 'jmcantrell/vim-virtualenv' " User virtualenv for current python interpretator
 Plugin 'nvie/vim-flake8'           " Linter for python code
+
+" --- HTML ---
+Plugin 'mattn/emmet-vim' 	   " Autocomplete tags HTML
+
 
 call vundle#end()
 
@@ -32,6 +36,9 @@ call vundle#end()
 map <C-n> :NERDTreeToggle<CR>	   " Open/Close NerdTree
 " Aoutoclose after open file
 let NERDTreeQuitOnOpen=1
+
+" Remap keys for EMMET
+let g:user_emmet_leader_key='<C-Z>'
 
 " Now we can turn our filetype functionality back on
 "
