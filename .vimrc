@@ -48,3 +48,4 @@ filetype plugin indent on
 set number
 syntax on
 set linespace=3
+set encoding=utf-8
