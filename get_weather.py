@@ -3,7 +3,7 @@ from pprint import pprint as prnt
 import json
 
 
-url = 'https://wttr.in/%D0%9D%D0%BE%D0%B2%D0%BE%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D1%8C%D0%BA?format=j1'
+url = 'https://wttr.in/?format=j1'
 
 r = requests.get(url)
 content = r.content.decode('utf-8').strip('\n')
@@ -17,7 +17,12 @@ def real_temp(fahrenheit: int) -> int:
     return str(round(celsius))
 
 
-#TODO 1: current_condition
+def cut_the_text(value: str):
+    if len(value) > 15:
+        a,b,c = value.split()
+        s =  f"{a[:4]}.{b[:4]}.{c[:4]}"
+        return s
+    return value
 
 weatherDesc = file["current_condition"][0]['weatherDesc'][0]['value']
 temp_C = real_temp(int(file["current_condition"][0]['temp_F']))
@@ -29,21 +34,27 @@ precipitation = file["current_condition"][0]['precipMM'] + ' mm'
 sun_rise = file["weather"][0]['astronomy'][0]["sunrise"]
 sun_set = file["weather"][0]['astronomy'][0]["sunset"]
 sunshine = f"{sun_rise.strip(' AM')} - {sun_set.replace(' ', '')}"
-#TODO 2: tomorrow weather
+
+#tomorrow weather
 
 temp_C_next = real_temp(int(file["weather"][1]['hourly'][4]['tempF'])) + '°C'
-precip_morn = file['weather'][1]['hourly'][2]['precipMM'] + ' mm'
-prec_morn_descr_next = f'Осадки(6:00) {precip_morn}'
+precip_morn_6 = file['weather'][1]['hourly'][2]['precipMM'] + ' mm'
+precip_morn_12 = file['weather'][1]['hourly'][4]['precipMM'] + ' mm'
+#prec_morn_descr_next = f'Опади(6:00) {precip_morn}'
 weatherDesc_next = file['weather'][1]['hourly'][4]['weatherDesc'][0]['value']
-
+city = file['nearest_area'][0]['areaName'][0]['value']
 
 
 print(
-    f"""Сейчас:         Завтра:
-{weatherDesc}   {weatherDesc_next}
+        f"""Місто: {city}
+Сьогодні:         Завтра:
+{cut_the_text(weatherDesc)}    {cut_the_text(weatherDesc_next)}
 {full_temp}         {temp_C_next}
-{wind}      {prec_morn_descr_next}
-{precipitation}      
+ОПАДИ:
+{precipitation}           (6:00) {precip_morn_6}
+                (12:00) {precip_morn_12}
+{wind}
 {sunshine}"""
 )
+
 
