@@ -19,6 +19,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'preservim/nerdtree'		  " Project and file navigation
 
 "---------------=== Languages support ===-------------
+
 " --- Python ---
 Plugin 'Valloric/YouCompleteMe'		  " Autocomplete
 Plugin 'jmcantrell/vim-virtualenv'	  " User virtualenv for current python interpretator
@@ -33,6 +34,13 @@ Plugin 'mattn/emmet-vim'		  " Autocomplete tags HTML
 "Plugin 'iloginow/vim-vue'		  " Syntax highlighting indentaion and autocomplete based on <template> <script> and <style> tags
 call vundle#end()
 
+" --------------- Python SETTINGS ----------------
+" !python3 % executes the current file with Python.
+nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+
+" --------------- Colorscheme SETTINGS for DIFFERENT filetypes ----------------
+"autocmd BufEnter *.py	 colorscheme darcula
+"autocmd BufEnter *.html  colorscheme wombat256mod
 
 "Close autohint-window-preview for YCM 
 set completeopt-=preview 
@@ -46,7 +54,7 @@ let NERDTreeQuitOnOpen=1
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " Remap keys for EMMET
-"let g:user_emmet_leader_key='<C-c>'
+let g:user_emmet_leader_key='<C-x>'
 
 
 " Now we can turn our filetype functionality back on
@@ -55,6 +63,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 set number
+colorscheme wombat256mod
 syntax on
 set linespace=3
 set encoding=utf-8
