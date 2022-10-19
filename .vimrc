@@ -42,9 +42,6 @@ nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 "autocmd BufEnter *.py	 colorscheme darcula
 "autocmd BufEnter *.html  colorscheme wombat256mod
 
-"Close autohint-window-preview for YCM 
-set completeopt-=preview 
-let g:ycm_add_preview_to_completeopt = 0
 "Stick this in your vimrc to open NERDTree with `Ctrl+n`
 " (you can set whatever key you want):
 map <C-n> :NERDTreeToggle<CR>	   " Open/Close NerdTree
@@ -55,6 +52,18 @@ nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " Remap keys for EMMET
 let g:user_emmet_leader_key='<C-x>'
+
+" Global config file for every cpp extentions for YCM
+" (no need to create 'ycm_extra_conf.py' in every project)
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+"Close autohint-window-preview for YCM 
+set completeopt-=preview 
+let g:ycm_add_preview_to_completeopt = 0
+
+" ----------------- CPP settings --------------------
+"
+autocmd BufEnter *.cpp set shiftwidth=4
 
 
 " Now we can turn our filetype functionality back on
