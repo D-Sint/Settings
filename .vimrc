@@ -5,6 +5,7 @@ filetype off
 " Vundle settings
 "=====================================================
 " set the runtime path to include Vundle and initialize
+"
 set rtp+=$HOME/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -16,26 +17,30 @@ Plugin 'gmarik/Vundle.vim'
 
 "---------=== Code/project navigation ===-------------
 " We could also add repositories with a ".git" extension
+"
 Plugin 'preservim/nerdtree'		  " Project and file navigation
 
 "---------------=== Languages support ===-------------
 
 " --- Python ---
+"
 Plugin 'Valloric/YouCompleteMe'		  " Autocomplete
 Plugin 'jmcantrell/vim-virtualenv'	  " User virtualenv for current python interpretator
 Plugin 'nvie/vim-flake8'		  " Linter for python code
 Plugin 'Vimjas/vim-python-pep8-indent'	  " PEP8 indent
 
 " --- HTML ---
+"
 Plugin 'mattn/emmet-vim'		  " Autocomplete tags HTML
 
 " --- Vue ---
 "Plugin 'leafOfTree/vim-vue-plugin'	  " Syntax highlighting and identaion for .vue files
 "Plugin 'iloginow/vim-vue'		  " Syntax highlighting indentaion and autocomplete based on <template> <script> and <style> tags
+
 call vundle#end()
 
 " --------------- Python SETTINGS ----------------
-" !python3 % executes the current file with Python.
+" !python3 % executed for the current file with Python.
 nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 
 " --------------- Colorscheme SETTINGS for DIFFERENT filetypes ----------------
