@@ -1,5 +1,4 @@
 import requests
-from pprint import pprint as prnt
 import json
 
 
@@ -24,6 +23,7 @@ def cut_the_text(value: str):
         return s
     return value
 
+#weatherDesc = file["current_condition"][0]['weatherDesc'][0]['value']
 weatherDesc = file["current_condition"][0]['weatherDesc'][0]['value']
 temp_C = real_temp(int(file["current_condition"][0]['temp_F']))
 feelsLike_C = file["current_condition"][0]['FeelsLikeC']
@@ -44,10 +44,9 @@ precip_morn_12 = file['weather'][1]['hourly'][4]['precipMM'] + ' mm'
 weatherDesc_next = file['weather'][1]['hourly'][4]['weatherDesc'][0]['value']
 city = file['nearest_area'][0]['areaName'][0]['value']
 
-
-print(
-        f"""Місто: {city}
-Сьогодні:         Завтра:
+if __name__ == '__main__':
+    print(
+f"""Сьогодні:         Завтра:
 {cut_the_text(weatherDesc)}    {cut_the_text(weatherDesc_next)}
 {full_temp}         {temp_C_next}
 ОПАДИ:
@@ -55,6 +54,6 @@ print(
                 (12:00) {precip_morn_12}
 {wind}
 {sunshine}"""
-)
+    )
 
 

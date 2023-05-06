@@ -14,6 +14,10 @@ call vundle#begin()
 " 'user/repository' format
 Plugin 'gmarik/Vundle.vim'
 
+"---------=== Vim setup ===-------------
+Plugin 'https://github.com/vim-airline/vim-airline'
+
+
 "---------=== Code/project navigation ===-------------
 " We could also add repositories with a ".git" extension
 Plugin 'preservim/nerdtree'		  " Project and file navigation
@@ -28,7 +32,7 @@ Plugin 'Vimjas/vim-python-pep8-indent'	  " PEP8 indent
 
 " --- C++ ---
 "Plugin 'dense-analysis/ale'		  " Linter (Syntastic is deprecated)
-Plugin 'neoclide/coc.nvim'		  " Autocomplete
+"Plugin 'neoclide/coc.nvim'		  " Autocomplete
 
 " --- HTML ---
 Plugin 'mattn/emmet-vim'		  " Autocomplete tags HTML
