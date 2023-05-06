@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 "=====================================================
 " Vundle settings
@@ -32,7 +31,6 @@ Plugin 'Vimjas/vim-python-pep8-indent'	  " PEP8 indent
 
 " --- C++ ---
 "Plugin 'dense-analysis/ale'		  " Linter (Syntastic is deprecated)
-"Plugin 'neoclide/coc.nvim'		  " Autocomplete
 
 " --- HTML ---
 Plugin 'mattn/emmet-vim'		  " Autocomplete tags HTML
