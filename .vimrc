@@ -1,4 +1,5 @@
 set nocompatible
+filetype off
 
 "=====================================================
 " Vundle settings
@@ -14,7 +15,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "---------=== Vim setup ===-------------
-Plugin 'https://github.com/vim-airline/vim-airline'
+Plugin 'https://github.com/vim-airline/vim-airline'   " status bar on bottom
 
 
 "---------=== Code/project navigation ===-------------
@@ -31,18 +32,21 @@ Plugin 'Vimjas/vim-python-pep8-indent'	  " PEP8 indent
 
 " --- C++ ---
 "Plugin 'dense-analysis/ale'		  " Linter (Syntastic is deprecated)
+"Plugin 'neoclide/coc.nvim'		  " Autocomplete
 
 " --- HTML ---
 Plugin 'mattn/emmet-vim'		  " Autocomplete tags HTML
 
 " --- Vue ---
 "Plugin 'leafOfTree/vim-vue-plugin'	  " Syntax highlighting and identaion for .vue files
-"Plugin 'iloginow/vim-vue'		  " Syntax highlighting indentaion and autocomplete based on <template> <script> and <style> tags
+"Plugin 'iloginow/vim-vue'		  " Syntax highlighting indentaion and autocomplete
+					  " based on <template> <script> and <style> tags
 call vundle#end()
 
 " --------------- Python SETTINGS ----------------
 " !python3 % executes the current file with Python.
-nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>		     " Run python script
+autocmd FileType python map <buffer> <F3> :call flake8#Flake8()<CR>  " Linter flake8
 
 " --------------- Colorscheme SETTINGS for DIFFERENT filetypes ----------------
 "autocmd BufEnter *.py	 colorscheme darcula
@@ -50,7 +54,7 @@ nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 
 "Stick this in your vimrc to open NERDTree with `Ctrl+n`
 " (you can set whatever key you want):
-map <C-n> :NERDTreeToggle<CR>	   " Open/Close NerdTree
+map <C-n> :NERDTreeToggle<CR>	          " Open/Close NerdTree
 " Autoclose after open file
 let NERDTreeQuitOnOpen=1
 " Refresh NERDTree files and dirs
@@ -69,7 +73,7 @@ let g:ycm_add_preview_to_completeopt = 0
 
 " ----------------- CPP settings --------------------
 "
-autocmd BufEnter,BufRead,BufNewFile *.cpp set shiftwidth=4 softtabstop=4
+"autocmd BufEnter,BufRead,BufNewFile *.cpp set shiftwidth=4 softtabstop=4
 "nnoremap <f6> :w <CR>:ALEDetail<CR>
 
 
@@ -79,10 +83,10 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 set number
+set relativenumber
 colorscheme wombat256mod
 syntax on
 set linespace=3
 set encoding=utf-8
-
 set shiftwidth=2
 set softtabstop=2
