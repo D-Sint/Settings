@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-sudo apt install tree htop vim vim-python-jedi ripgrep conky-all -y
+sudo apt install tree htop neovim vim-python-jedi ripgrep conky-all -y
 
 sudo apt install git zsh -y
 
