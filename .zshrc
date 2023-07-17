@@ -111,6 +111,18 @@ mkcd() {
     mkdir -p "$1" && cd "$1"
   fi
 }
+# function for create virtualenv
+function nvimvenv {
+  if [[ -e "$VIRTUAL_ENV" && -f "$VIRTUAL_ENV/bin/activate" ]]; then
+    source "$VIRTUAL_ENV/bin/activate"
+    command nvim "$@"
+    deactivate
+  else
+    command nvim "$@"
+  fi
+}
+
+alias nve=nvimvenv
 
 
 
