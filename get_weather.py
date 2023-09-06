@@ -1,8 +1,17 @@
 import requests
 import json
+import argparse
 
 
-url = 'https://wttr.in/?format=j1&lang=uk'
+parser = argparse.ArgumentParser()
+parser.add_argument('-c', '--city',dest='city')
+
+args = parser.parse_args()
+
+if args.city:
+    url = f"https://wttr.in/{args.city}?format=j1&lang=uk"
+else:
+    url = 'https://wttr.in/Dnipro?format=j1&lang=uk'
 
 r = requests.get(url)
 content = r.content.decode('utf-8').strip('\n')
