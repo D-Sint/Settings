@@ -2,3 +2,4 @@
 *.swp
 diff_vrc.py 
 .pws
+.token_exp_30days
