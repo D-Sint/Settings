@@ -2,9 +2,28 @@
 git clone https://github.com/D-Sint/Settings/after_install_OS.sh ~/
 
 echo "Install neccessary packages"
-sudo apt install tree htop vim vim-python-jedi ripgrep conky-all -y
+sudo apt install curl wget tree htop ripgrep conky-all git zsh -y
 
-sudo apt install git zsh -y
+# add repo for vim
+sudo add-apt-repository ppa:jonathonf/vim
+
+sudo apt update
+
+#install vim
+sudo apt install vim vim-python-jedi -y 
+
+# install vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# install ycm
+git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
+
+# install clang
+sudo apt install clang
+
+# install vim-wombat
+git clone git@github.com:michalbachowski/vim-wombat256mod.git && cd vim-wombat256mod && cp colors/wombat256mod.vim ~/.vim/colors 
+
 
 # install crow-translate
 sudo add-apt-repository ppa:jonmagon/crow-translate
