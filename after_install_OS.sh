@@ -1,5 +1,14 @@
 #!/usr/bin/bash
-git clone https://github.com/D-Sint/Settings/after_install_OS.sh ~/
+
+#!/bin/bash
+
+file_path="~/after_intsall_OS.sh"
+
+if [ -f "$file_path" ]; then
+    echo "File exists"
+else
+    git clone https://github.com/D-Sint/Settings/after_install_OS.sh ~/
+fi
 
 echo "Install neccessary packages"
 sudo apt install curl wget tree htop ripgrep conky-all git zsh -y
@@ -47,6 +56,7 @@ if locale -a | grep uk_UA;then
 fi
 
 echo "setup vim/vundle [don't miss setup YCM/reload it]"
+time 5
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "please install plugins INSIDE VIM. After this install clang-completer for YCM\
   and restart it."
