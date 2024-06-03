@@ -31,6 +31,7 @@ git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouComplet
 sudo apt install clang
 
 # install vim-wombat
+mkdir -p ~/.vim/colors
 git clone git@github.com:michalbachowski/vim-wombat256mod.git && cd vim-wombat256mod && cp colors/wombat256mod.vim ~/.vim/colors 
 
 

@@ -9,6 +9,6 @@ tmux selectp -t 1
 tmux splitw -v -p 50
 
 tmux selectp -t 0
-tmux send-keys -t NOTES "sudo apt update && sudo apt list --upgradable" C-m
+tmux send-keys -t NOTES "update" C-m
 tmux attach-session -t NOTES
 
