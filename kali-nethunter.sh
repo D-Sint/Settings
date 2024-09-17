@@ -1,0 +1,1 @@
+pkg install wget proot tar -y                wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh
