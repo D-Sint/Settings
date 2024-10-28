@@ -52,4 +52,7 @@ vim +PlugInstall +qall
 
 echo "Install YCM --clang-completer"
 cd ~/.vim/bundle/YouCompleteMe
+sudo apt install cmake -yy
+# Updating YCM
+git submodule update --init --recursive
 python3 install.py --clang-completer
