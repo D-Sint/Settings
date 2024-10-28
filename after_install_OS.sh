@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# disable asteriks typing password
+sudo mv /etc/sudoers.d/0pwfeedback /etc/sudoers.d/0pwfeedback.disabled 
+
 echo "Install neccessary packages"
 sudo apt install curl wget tree htop ripgrep conky-all git zsh -y
 
