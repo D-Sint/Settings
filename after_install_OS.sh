@@ -1,14 +1,4 @@
-#!/usr/bin/bash
-
 #!/bin/bash
-
-file_path="~/after_intsall_OS.sh"
-
-if [ -f "$file_path" ]; then
-    echo "File exists"
-else
-    git clone https://github.com/D-Sint/Settings/after_install_OS.sh ~/
-fi
 
 echo "Install neccessary packages"
 sudo apt install curl wget tree htop ripgrep conky-all git zsh -y
@@ -32,7 +22,7 @@ sudo apt install clang
 
 # install vim-wombat
 mkdir -p ~/.vim/colors
-git clone git@github.com:michalbachowski/vim-wombat256mod.git && cd vim-wombat256mod && cp colors/wombat256mod.vim ~/.vim/colors 
+git clone https://github.com/michalbachowski/vim-wombat256mod.git && cd vim-wombat256mod && cp colors/wombat256mod.vim ~/.vim/colors/ 
 
 
 # install crow-translate
@@ -57,13 +47,9 @@ if locale -a | grep uk_UA;then
 fi
 
 echo "setup vim/vundle [don't miss setup YCM/reload it]"
-time 5
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-echo "please install plugins INSIDE VIM. After this install clang-completer for YCM\
-  and restart it."
-vim
+
+vim +PlugInstall +qall
 
 echo "Install YCM --clang-completer"
 cd ~/.vim/bundle/YouCompleteMe
 python3 install.py --clang-completer
-vim
