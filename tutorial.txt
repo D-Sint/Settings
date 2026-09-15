@@ -1,0 +1,23 @@
+Whisper → faster-whisper
+RTX 4060 → CUDA + FP16
+Argos Translate прибраний
+додав локальний EN → UK перекладач Helsinki-NLP/OPUS-MT
+переклад також може працювати на RTX 4060
+SRT зберігає таймінги
+після першого завантаження моделі переклад працює офлайн
+додав --batch-size для прискорення перекладу.
+Завантажити video2ua_faster_local_translate.py
+Встановлення
+sudo apt install ffmpeg
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+pip install -U faster-whisper transformers sentencepiece torch
+Потім:
+python video2ua_faster_local_translate.py video.mp4 --model medium --srt
+Для твоєї RTX 4060 я б почав саме з medium:
+--model medium
+а якщо потрібна максимальна якість розпізнавання:
+--model large-v3
+Єдине важливе зауваження: OPUS-MT EN→UK значно кращий варіант для локального перекладу, ніж Argos у твоєму початковому скрипті, але це все одно не рівень найкращих сучасних LLM-перекладачів. Зате він безкоштовний і локальний.
